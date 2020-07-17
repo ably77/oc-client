@@ -1,7 +1,7 @@
 FROM image-registry.openshift-image-registry.svc:5000/openshift/cli
 
 MAINTAINER ably77
-USER 1001
+USER 1
 RUN yum install -y git
 RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN yum -y install jq
