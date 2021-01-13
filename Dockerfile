@@ -33,11 +33,6 @@ RUN curl --fail -sL https://mirror.openshift.com/pub/openshift-v4/clients/odo/${
 
 WORKDIR $HOME
 
-ADD ./root /
-
-RUN chmod u+x /usr/local/bin/run && \
-    rm -rf $HOME/.cache
-
 USER 1001
 
 ENTRYPOINT ["/usr/local/bin/run"]
