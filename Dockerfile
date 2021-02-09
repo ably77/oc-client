@@ -2,7 +2,6 @@ FROM registry.access.redhat.com/ubi8
 
 ENV OC_VERSION=4.6.9 \
     ODO_VERSION=v2.0.3 \
-    ANSIBLE_VERSION=2.9 \
     JQ_VERSION=1.6 \
     HELM_VERSION=v3.2.3 \
     TEKTON_VERSION=0.15.0 \
