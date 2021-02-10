@@ -18,7 +18,7 @@ RUN curl -o jq --fail -sL https://github.com/stedolan/jq/releases/download/jq-${
     mv jq /usr/local/bin
 
 RUN mkdir -m 775 $HOME && \
-    chmod 775 /etc/passwd &&
+    chmod 775 /etc/passwd
 
 RUN curl --fail -s https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar -xvz && \
     chmod u+x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin/ && rm -rf linux-amd64
