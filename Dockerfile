@@ -2,6 +2,7 @@ FROM registry.access.redhat.com/ubi8
 
 ENV OC_VERSION=4.6.9 \
     ODO_VERSION=v2.0.3 \
+    ANSIBLE_VERSION=2.9 \
     JQ_VERSION=1.6 \
     HELM_VERSION=v3.2.3 \
     TEKTON_VERSION=0.15.0 \
@@ -15,6 +16,10 @@ RUN yum -y update && \
 RUN curl -o jq --fail -sL https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 && \
     chmod +x jq && \
     mv jq /usr/local/bin
+
+RUN mkdir -m 775 $HOME && \
+    chmod 775 /etc/passwd && \
+    pip3 install git+https://github.com/ansible/ansible.git@stable-${ANSIBLE_VERSION}
 
 RUN curl --fail -s https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar -xvz && \
     chmod u+x linux-amd64/helm && mv linux-amd64/helm /usr/local/bin/ && rm -rf linux-amd64
